@@ -61,7 +61,9 @@ const isIpad = (win: Window) => {
   return false;
 };
 
-const isIphone = (win: Window) => testUserAgent(win, /iPhone/i);
+function isIphone(win: Window) {
+  return testUserAgent(win, /iPhone/i);
+}
 
 const isIOS = (win: Window) => testUserAgent(win, /iPhone|iPod/i) || isIpad(win);
 
@@ -91,7 +93,10 @@ const isTablet = (win: Window) => {
 
 const isMobile = (win: Window) => matchMedia(win, '(any-pointer:coarse)');
 
-const isDesktop = (win: Window) => !isMobile(win);
+function isDesktop(win: Window){
+  console.log(isMobile(win),"isMobile(win)")
+  return !isMobile(win)
+} ;
 
 const isHybrid = (win: Window) => isCordova(win) || isCapacitorNative(win);
 
